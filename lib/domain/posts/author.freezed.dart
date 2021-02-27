@@ -153,27 +153,6 @@ abstract class _Author implements Author {
       _$_Author;
 
   factory _Author.fromJson(Map<String, dynamic> json) = _$_Author.fromJson;
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(uid);
-
-  @JsonKey(ignore: true)
-  @override
-  _$AuthorCopyWith<_Author> get copyWith =>
-      __$AuthorCopyWithImpl<_Author>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_AuthorToJson(this);
-  }
-}
-
-abstract class _Author implements Author {
-  const factory _Author({@required String name, @required String uid}) =
-      _$_Author;
-
-  factory _Author.fromJson(Map<String, dynamic> json) = _$_Author.fromJson;
 
   @override
   String get name;

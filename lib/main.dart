@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Foxtrot',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.blue,
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: "Foxtrot Demo"),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
