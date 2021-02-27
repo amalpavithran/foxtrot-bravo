@@ -18,11 +18,17 @@ class _$ArticleTearOff {
 
 // ignore: unused_element
   _Article call(
-      {@required String htmlText,
+      {@required String id,
+      @required String title,
+      @required String subtitle,
+      @required String htmlText,
       @required Author author,
       @required int upVotes,
       @required int downVotes}) {
     return _Article(
+      id: id,
+      title: title,
+      subtitle: subtitle,
       htmlText: htmlText,
       author: author,
       upVotes: upVotes,
@@ -42,6 +48,9 @@ const $Article = _$ArticleTearOff();
 
 /// @nodoc
 mixin _$Article {
+  String get id;
+  String get title;
+  String get subtitle;
   String get htmlText;
   Author get author;
   int get upVotes;
@@ -56,7 +65,14 @@ mixin _$Article {
 abstract class $ArticleCopyWith<$Res> {
   factory $ArticleCopyWith(Article value, $Res Function(Article) then) =
       _$ArticleCopyWithImpl<$Res>;
-  $Res call({String htmlText, Author author, int upVotes, int downVotes});
+  $Res call(
+      {String id,
+      String title,
+      String subtitle,
+      String htmlText,
+      Author author,
+      int upVotes,
+      int downVotes});
 
   $AuthorCopyWith<$Res> get author;
 }
@@ -71,12 +87,18 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
 
   @override
   $Res call({
+    Object id = freezed,
+    Object title = freezed,
+    Object subtitle = freezed,
     Object htmlText = freezed,
     Object author = freezed,
     Object upVotes = freezed,
     Object downVotes = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed ? _value.id : id as String,
+      title: title == freezed ? _value.title : title as String,
+      subtitle: subtitle == freezed ? _value.subtitle : subtitle as String,
       htmlText: htmlText == freezed ? _value.htmlText : htmlText as String,
       author: author == freezed ? _value.author : author as Author,
       upVotes: upVotes == freezed ? _value.upVotes : upVotes as int,
@@ -100,7 +122,14 @@ abstract class _$ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   factory _$ArticleCopyWith(_Article value, $Res Function(_Article) then) =
       __$ArticleCopyWithImpl<$Res>;
   @override
-  $Res call({String htmlText, Author author, int upVotes, int downVotes});
+  $Res call(
+      {String id,
+      String title,
+      String subtitle,
+      String htmlText,
+      Author author,
+      int upVotes,
+      int downVotes});
 
   @override
   $AuthorCopyWith<$Res> get author;
@@ -117,12 +146,18 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object id = freezed,
+    Object title = freezed,
+    Object subtitle = freezed,
     Object htmlText = freezed,
     Object author = freezed,
     Object upVotes = freezed,
     Object downVotes = freezed,
   }) {
     return _then(_Article(
+      id: id == freezed ? _value.id : id as String,
+      title: title == freezed ? _value.title : title as String,
+      subtitle: subtitle == freezed ? _value.subtitle : subtitle as String,
       htmlText: htmlText == freezed ? _value.htmlText : htmlText as String,
       author: author == freezed ? _value.author : author as Author,
       upVotes: upVotes == freezed ? _value.upVotes : upVotes as int,
@@ -136,11 +171,17 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 /// @nodoc
 class _$_Article with DiagnosticableTreeMixin implements _Article {
   const _$_Article(
-      {@required this.htmlText,
+      {@required this.id,
+      @required this.title,
+      @required this.subtitle,
+      @required this.htmlText,
       @required this.author,
       @required this.upVotes,
       @required this.downVotes})
-      : assert(htmlText != null),
+      : assert(id != null),
+        assert(title != null),
+        assert(subtitle != null),
+        assert(htmlText != null),
         assert(author != null),
         assert(upVotes != null),
         assert(downVotes != null);
@@ -148,6 +189,12 @@ class _$_Article with DiagnosticableTreeMixin implements _Article {
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$_$_ArticleFromJson(json);
 
+  @override
+  final String id;
+  @override
+  final String title;
+  @override
+  final String subtitle;
   @override
   final String htmlText;
   @override
@@ -159,7 +206,7 @@ class _$_Article with DiagnosticableTreeMixin implements _Article {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Article(htmlText: $htmlText, author: $author, upVotes: $upVotes, downVotes: $downVotes)';
+    return 'Article(id: $id, title: $title, subtitle: $subtitle, htmlText: $htmlText, author: $author, upVotes: $upVotes, downVotes: $downVotes)';
   }
 
   @override
@@ -167,6 +214,9 @@ class _$_Article with DiagnosticableTreeMixin implements _Article {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Article'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('subtitle', subtitle))
       ..add(DiagnosticsProperty('htmlText', htmlText))
       ..add(DiagnosticsProperty('author', author))
       ..add(DiagnosticsProperty('upVotes', upVotes))
@@ -177,6 +227,13 @@ class _$_Article with DiagnosticableTreeMixin implements _Article {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Article &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.subtitle, subtitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.subtitle, subtitle)) &&
             (identical(other.htmlText, htmlText) ||
                 const DeepCollectionEquality()
                     .equals(other.htmlText, htmlText)) &&
@@ -193,6 +250,9 @@ class _$_Article with DiagnosticableTreeMixin implements _Article {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(subtitle) ^
       const DeepCollectionEquality().hash(htmlText) ^
       const DeepCollectionEquality().hash(author) ^
       const DeepCollectionEquality().hash(upVotes) ^
@@ -211,13 +271,22 @@ class _$_Article with DiagnosticableTreeMixin implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {@required String htmlText,
+      {@required String id,
+      @required String title,
+      @required String subtitle,
+      @required String htmlText,
       @required Author author,
       @required int upVotes,
       @required int downVotes}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
+  @override
+  String get id;
+  @override
+  String get title;
+  @override
+  String get subtitle;
   @override
   String get htmlText;
   @override

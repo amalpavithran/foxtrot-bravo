@@ -8,6 +8,9 @@ part of 'article.dart';
 
 _$_Article _$_$_ArticleFromJson(Map<String, dynamic> json) {
   return _$_Article(
+    id: json['id'] as String,
+    title: json['title'] as String,
+    subtitle: json['subtitle'] as String,
     htmlText: json['htmlText'] as String,
     author: json['author'] == null
         ? null
@@ -19,6 +22,9 @@ _$_Article _$_$_ArticleFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'subtitle': instance.subtitle,
       'htmlText': instance.htmlText,
       'author': instance.author,
       'upVotes': instance.upVotes,
