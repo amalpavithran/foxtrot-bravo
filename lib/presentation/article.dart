@@ -10,7 +10,7 @@ class ArticleView extends StatelessWidget {
   }) : super(key: key);
   final String articleId;
 
-  Article sample = Article(
+  final Article sample = Article(
     id: 'sampleid',
     htmlText: "hello World",
     author: Author(name: "super auth", uid: "testid"),
@@ -23,7 +23,9 @@ class ArticleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(sample.title)),
+      appBar: AppBar(
+        title: Text(sample.title),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Html(
