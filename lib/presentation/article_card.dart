@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../domain/article/article.dart';
+import '../presentation/article.dart';
 
 class ArticleCard extends StatelessWidget {
   const ArticleCard({
@@ -19,7 +20,16 @@ class ArticleCard extends StatelessWidget {
             children: [
               Text(article.title),
               Text(article.subtitle),
-              Text("Wow Points: " + (article.upVotes - article.downVotes).toString()),
+              Text("Wow Points: " +
+                  (article.upVotes - article.downVotes).toString()),
+              TextButton(
+                child: Text('Go To Article'),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ArticleView(articleId: article.id),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
