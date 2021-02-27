@@ -23,6 +23,7 @@ class ArticleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(sample.title)),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Html(
