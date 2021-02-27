@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:foxtrot/domain/article/article.dart';
-import 'package:foxtrot/domain/author/author.dart';
+
+import '../domain/article/article.dart';
+import '../domain/author/author.dart';
+import 'article_card.dart';
 
 class Dashboard extends StatelessWidget {
   Dashboard({
@@ -26,9 +28,20 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            children: articles
+                .map(
+                  (e) => ArticleCard(article: e),
+                )
+                .toList(),
+          ),
+        ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () => print(user)),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => print("Navigate to New Document page"),
+      ),
     );
   }
 }
