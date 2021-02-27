@@ -1,7 +1,9 @@
 import 'package:foxtrot/domain/article/article.dart';
 import 'package:foxtrot/domain/article/i_articles.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: IArticles)
 class ArticleRepository implements IArticles {
   @override
   Future<Article> getArticle(String articleId) async {

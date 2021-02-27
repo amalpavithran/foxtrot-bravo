@@ -4,13 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "vsls",
-            "taskUid": "flutter:flutter pub run build_runner build",
-            "problemMatcher": [
-                "$vsls"
-            ],
-            "group": "build",
-            "label": "flutter:flutter pub run build_runner build --delete-conflicting-outputs"
-        },
+			"label": "Run Builder",
+			"type": "shell",
+			"command": "flutter pub run build_runner build --delete-conflicting-outputs",
+			"problemMatcher": []
+		}
     ]
 }
