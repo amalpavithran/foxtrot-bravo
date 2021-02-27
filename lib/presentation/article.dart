@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foxtrot/application/article_page/article_page_bloc.dart';
-import 'package:foxtrot/domain/article/article.dart';
-import 'package:foxtrot/domain/author/author.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:foxtrot/injection.dart';
+
+import '../application/article_page/article_page_bloc.dart';
+import '../injection.dart';
 
 class ArticleView extends StatelessWidget {
   ArticleView({
@@ -20,7 +19,7 @@ class ArticleView extends StatelessWidget {
       create: (context) => getIt<ArticlePageBloc>()..add(InitialEvent(articleId)),
       child: Scaffold(
           appBar: AppBar(
-            title: Text(sample.title),
+            title: Text(context.read<ArticlePageBloc>().state.article.fold(() => "", (a) => a.title)),
           ),
           body: BlocBuilder<ArticlePageBloc, ArticlePageState>(
             builder: (context, state) {
