@@ -29,4 +29,11 @@ class ArticleRepository implements IArticles {
     DocumentReference ref = await articles.add(article.toJson());
     return ref.id;
   }
+
+  @override
+  Future<List<Article>> getListArticles() async {
+    final articles =
+        await FirebaseFirestore.instance.collection('articles').get();
+    return articles.docs.map((e) => Article.fromJson(e.data())).toList();
+  }
 }
