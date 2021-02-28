@@ -29,9 +29,12 @@ class ArticlePage extends StatelessWidget {
                 );
               } else {
                 return SafeArea(
-                    child: Html(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Html(
                   data: state.article.fold(() => "", (a) => a.htmlText),
-                ));
+                ),
+                    ));
               }
             },
           )),
