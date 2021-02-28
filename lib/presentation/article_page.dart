@@ -5,8 +5,8 @@ import 'package:flutter_html/flutter_html.dart';
 import '../application/article_page/article_page_bloc.dart';
 import '../injection.dart';
 
-class ArticleView extends StatelessWidget {
-  ArticleView({
+class ArticlePage extends StatelessWidget {
+  ArticlePage({
     @required this.articleId,
     Key key,
   }) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../domain/article/article.dart';
-import '../presentation/article.dart';
+import 'article_page.dart';
 
 class ArticleCard extends StatelessWidget {
   const ArticleCard({
@@ -12,7 +12,9 @@ class ArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () => print("Navigate to Article page"),
+      onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => ArticlePage(articleId: article.id),
+      )),
       child: Container(
         height: 150,
         child: Card(
@@ -26,7 +28,7 @@ class ArticleCard extends StatelessWidget {
                 child: Text('Go To Article'),
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ArticleView(articleId: article.id),
+                    builder: (context) => ArticlePage(articleId: article.id),
                   ),
                 ),
               ),

@@ -15,22 +15,10 @@ class Dashboard extends StatelessWidget {
   }) : super(key: key);
   final UserCredential user;
 
-  final List<Article> articles = List.generate(
-    4,
-    (index) => Article(
-      id: '$index',
-      htmlText: "hello World",
-      author: Author(name: "super auth", uid: "testid"),
-      upVotes: 10,
-      downVotes: 5,
-      subtitle: 'Subtitle',
-      title: 'Title',
-    ),
-  );
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<DashboardBloc>(),
+      create: (context) => getIt<DashboardBloc>()..add(DashboardEvent.initialEvent()),
       child: BlocBuilder(
         builder: (context, state) {
           if (state.articles.isNone) {
