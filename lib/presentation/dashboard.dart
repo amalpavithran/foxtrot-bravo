@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foxtrot/application/dashboard/dashboard_bloc.dart';
 import 'package:foxtrot/injection.dart';
 
-import '../domain/article/article.dart';
-import '../domain/author/author.dart';
 import 'article_card.dart';
 
 class Dashboard extends StatelessWidget {
