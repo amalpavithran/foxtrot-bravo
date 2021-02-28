@@ -1,4 +1,4 @@
-package com.example.foxtrot
+package com.teamhac.foxtrot
 
 import io.flutter.embedding.android.FlutterActivity
 
