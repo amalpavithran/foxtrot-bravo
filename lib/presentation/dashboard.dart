@@ -18,10 +18,11 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<DashboardBloc>()..add(DashboardEvent.initialEvent()),
-      child: BlocBuilder(
+      create: (context) =>
+          getIt<DashboardBloc>()..add(DashboardEvent.initialEvent()),
+      child: BlocBuilder<DashboardBloc, DashboardState>(
         builder: (context, state) {
-          if (state.articles.isNone) {
+          if (state.articles.isNone()) {
             return Center(child: CircularProgressIndicator());
           }
           return Scaffold(
@@ -29,12 +30,10 @@ class Dashboard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListView(
-                  children: state.articles
-                      .map(
-                        (e) => ArticleCard(article: e),
-                      )
-                      .toList(),
-                ),
+                    children: state.articles.fold(
+                  () => [],
+                  (a) => a.map((e) => ArticleCard(article: e)).toList(),
+                )),
               ),
             ),
             floatingActionButton: FloatingActionButton(
